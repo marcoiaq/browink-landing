@@ -66,34 +66,36 @@ export default function Home() {
 
       {/* Hero */}
       <section className="pt-16 md:pt-20">
-        <div className="relative bg-espresso text-cream px-4 py-16 md:py-28 text-center overflow-hidden">
-          <div className="absolute inset-0 opacity-25">
+        <div className="relative text-cream px-4 py-20 md:py-36 text-center overflow-hidden">
+          {/* Full-bleed background image */}
+          <div className="absolute inset-0">
             <Image
-              src="/images/micro_1.png"
+              src="/images/creative_3.png"
               alt="Microblading results by Tina Pham"
               fill
-              className="object-cover object-top"
+              className="object-cover object-center"
               priority
             />
+            {/* Light dark overlay so text reads clearly */}
+            <div className="absolute inset-0 bg-espresso/55" />
           </div>
-          <div className="absolute inset-0 bg-espresso/60" />
           <div className="relative z-10 max-w-2xl mx-auto">
-            <p className="text-rosegold text-xs font-semibold uppercase tracking-widest mb-3">
+            <p className="text-rosegold text-xs font-semibold uppercase tracking-widest mb-3 drop-shadow">
               Woodbridge &amp; Vaughan · Est. 2019
             </p>
-            <h1 className="font-playfair text-3xl md:text-5xl font-bold leading-tight mb-4">
+            <h1 className="font-playfair text-3xl md:text-5xl font-bold leading-tight mb-4 drop-shadow-lg">
               Wake Up With Perfect<br />Brows Every Morning
             </h1>
-            <p className="text-cream/85 text-base md:text-lg mb-8 max-w-md mx-auto">
+            <p className="text-cream/90 text-base md:text-lg mb-8 max-w-md mx-auto drop-shadow">
               Microblading by Tina Pham — Vaughan&apos;s trusted PMU artist since 2019
             </p>
             <a
               href="#form"
-              className="inline-block bg-rosegold text-white font-bold text-base px-8 py-4 rounded-full hover:bg-rosegold/90 transition-colors shadow-lg"
+              className="inline-block bg-rosegold text-white font-bold text-base px-8 py-4 rounded-full hover:bg-rosegold/90 transition-colors shadow-xl"
             >
               Book My $197 Intro Appointment →
             </a>
-            <div className="mt-8 flex flex-wrap justify-center gap-4 text-cream/70 text-xs font-medium">
+            <div className="mt-8 flex flex-wrap justify-center gap-4 text-cream/80 text-xs font-medium">
               <span>500+ Happy Clients</span>
               <span>·</span>
               <span>5★ Rated</span>
@@ -113,25 +115,22 @@ export default function Home() {
           <p className="text-darktext/60 text-center text-sm mb-8">Every result is by Tina Pham</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {[
-              { src: "/images/micro_1.png", caption: "Microblading — Woodbridge" },
-              { src: "/images/micro_2.png", caption: "Microblading — Vaughan" },
-              { src: "/images/micro_3.png", caption: "Microblading — Thornhill" },
-              { src: "/images/combo_1.png", caption: "Combo Brows — Vaughan" },
-              { src: "/images/combo_2.png", caption: "Combo Brows — Woodbridge" },
-              { src: "/images/combo_3.png", caption: "Combo Brows — Richmond Hill" },
-            ].map((item, i) => (
-              <div key={i} className="relative group rounded-xl overflow-hidden shadow-sm">
+              "/images/micro_1.png",
+              "/images/micro_2.png",
+              "/images/micro_3.png",
+              "/images/combo_1.png",
+              "/images/combo_2.png",
+              "/images/combo_3.png",
+            ].map((src, i) => (
+              <div key={i} className="relative rounded-xl overflow-hidden shadow-sm">
                 <div className="relative aspect-square">
                   <Image
-                    src={item.src}
-                    alt={item.caption}
+                    src={src}
+                    alt="Brow result by Tina Pham"
                     fill
                     className="object-cover"
                     loading="lazy"
                   />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-espresso/70 py-1.5 px-2 text-center">
-                  <p className="text-cream text-xs font-medium">{item.caption}</p>
                 </div>
               </div>
             ))}
@@ -152,6 +151,7 @@ export default function Home() {
               muted
               loop
               playsInline
+              controls
               className="w-full"
               src="/promo.mp4"
             />
@@ -255,7 +255,7 @@ export default function Home() {
               <span className="text-5xl font-bold text-espresso">$197</span>
               <span className="text-darktext/60 text-sm self-end mb-2">CAD</span>
             </div>
-            <p className="text-darktext/60 text-sm mb-2">2-hour appointment · Aftercare kit included</p>
+            <p className="text-darktext/60 text-sm mb-2">3-hour appointment · Aftercare kit included</p>
             <div className="inline-block bg-red-50 border border-red-200 rounded-full px-4 py-1.5 mb-6">
               <p className="text-red-600 text-xs font-semibold">🔥 Only 3 spots left this week</p>
             </div>
