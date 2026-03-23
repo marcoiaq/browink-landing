@@ -1,19 +1,24 @@
 "use client";
 
-import Script from "next/script";
+import { useEffect } from "react";
 
 export default function GHLCalendar() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://book.marktr.co/js/form_embed.js";
+    script.type = "text/javascript";
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
-    <div className="w-full">
-      <iframe
-        src="https://link.msgsndr.com/widget/booking/khernaXKAmPnd8fgouvl"
-        style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "700px" }}
-        scrolling="no"
-        id="msgsndr-booking"
-        allow="camera; microphone; autoplay; payment"
-        title="Book Your Microblading Appointment"
-      />
-      <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
-    </div>
+    <iframe
+      src="https://book.marktr.co/widget/booking/khernaXKAmPnd8fgouvl"
+      style={{ width: "100%", border: "none", overflow: "hidden", minHeight: "700px" }}
+      scrolling="no"
+      id="khernaXKAmPnd8fgouvl_1774277275740"
+    />
   );
 }
