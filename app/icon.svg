@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Espresso background -->
+  <rect width="256" height="256" rx="55" fill="#3D2314"/>
+  
+  <!-- Rose gold brow arch -->
+  <path d="M 40 115 Q 128 55 216 115" stroke="#B76E79" stroke-width="16" fill="none" stroke-linecap="round"/>
+  
+  <!-- BI text -->
+  <text x="128" y="190" font-family="Georgia, serif" font-size="80" font-weight="bold" fill="#B76E79" text-anchor="middle">BI</text>
+</svg>
