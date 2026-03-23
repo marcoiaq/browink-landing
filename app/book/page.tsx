@@ -13,10 +13,10 @@ export default function BookPage() {
               Step 2 of 2
             </p>
             <h1 className="font-playfair text-2xl md:text-4xl font-bold text-espresso mb-3">
-              You&apos;re Almost Done — Pick Your Time
+              You&apos;re Almost There — Pick Your Time
             </h1>
             <p className="text-darktext/60 text-sm max-w-sm mx-auto">
-              A $30 refundable deposit is required to secure your appointment. It goes toward your service.
+              Your $30 deposit is required to finalize your booking. It&apos;s fully refundable and credited toward your service.
             </p>
           </div>
 
@@ -38,13 +38,21 @@ export default function BookPage() {
             <GHLCalendar />
           </div>
 
+          {/* Contact */}
+          <p className="text-center text-darktext/50 text-xs">
+            Questions?{" "}
+            <a href="mailto:tinanguyen19@gmail.com" className="text-espresso hover:text-rosegold transition-colors underline">
+              tinanguyen19@gmail.com
+            </a>
+          </p>
+
           {/* Deposit FAQ */}
-          <div className="bg-espresso/5 rounded-xl p-5 border border-espresso/10">
+          <div className="bg-espresso/5 rounded-xl p-5 border border-espresso/10 mt-4">
             <h3 className="font-semibold text-espresso text-sm mb-3">About the $30 Deposit</h3>
             <div className="space-y-2 text-xs text-darktext/70">
               <div className="flex items-start gap-2">
                 <span className="text-rosegold mt-0.5">✓</span>
-                <span>100% credited toward your microblading appointment</span>
+                <span>100% credited toward your $197 microblading appointment</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-rosegold mt-0.5">✓</span>
@@ -52,7 +60,7 @@ export default function BookPage() {
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-rosegold mt-0.5">✓</span>
-                <span>Processed securely via Stripe</span>
+                <span>Processed securely</span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-rosegold mt-0.5">✓</span>

@@ -16,7 +16,7 @@ export default function ThankYouPage() {
               You&apos;re Booked!
             </h1>
             <p className="text-darktext/60 text-base">
-              We can&apos;t wait to see you. Check your email for your appointment confirmation.
+              We cannot wait to see you! Check your email for your appointment confirmation.
             </p>
           </div>
 
@@ -28,10 +28,10 @@ export default function ThankYouPage() {
             <div className="space-y-4">
               {[
                 { num: "1", text: "Check your email for your appointment confirmation" },
-                { num: "2", text: "Avoid caffeine 24 hours before your appointment" },
+                { num: "2", text: "Avoid caffeine and alcohol 24 hours before your appointment" },
                 { num: "3", text: "Come with clean brows — no makeup on the brow area" },
-                { num: "4", text: "Stop blood thinners (aspirin, ibuprofen) 48h before if possible" },
-                { num: "5", text: "Questions? Text us and we'll get back to you right away" },
+                { num: "4", text: "Avoid blood thinners (aspirin, ibuprofen) 48 hours before if possible" },
+                { num: "5", text: "Questions? Email tinanguyen19@gmail.com — Tina will get back to you quickly" },
               ].map((step) => (
                 <div key={step.num} className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-rosegold text-white text-xs flex items-center justify-center font-bold flex-shrink-0 mt-0.5">
@@ -43,16 +43,32 @@ export default function ThankYouPage() {
             </div>
           </div>
 
+          {/* Location */}
+          <div className="bg-espresso/5 rounded-2xl p-6 mb-6 border border-espresso/10">
+            <h3 className="font-playfair text-base font-bold text-espresso mb-3">Where to Find Us</h3>
+            <p className="text-darktext/80 text-sm mb-1">107 Fossil Hill Road</p>
+            <p className="text-darktext/80 text-sm mb-3">Woodbridge, ON L4H 2L3</p>
+            <p className="text-darktext/60 text-xs mb-3">5 min from Vaughan Mills</p>
+            <a
+              href="https://maps.google.com/?q=107+Fossil+Hill+Road+Woodbridge+ON"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-xs font-semibold text-rosegold hover:text-espresso transition-colors"
+            >
+              Get Directions →
+            </a>
+          </div>
+
           {/* Social share */}
           <div className="bg-espresso rounded-2xl p-6 text-center text-cream mb-6">
             <h3 className="font-playfair text-lg font-bold mb-2">
               Love the idea of perfect brows?
             </h3>
             <p className="text-cream/70 text-sm mb-4">
-              Share Brow Ink with a friend and help them discover their best brows too.
+              Share Brow Ink Co. with a friend and help them discover their best brows too.
             </p>
             <a
-              href={`https://wa.me/?text=${encodeURIComponent("I just booked a microblading appointment at Brow Ink in Woodbridge! Check them out: browink.marktr.co")}`}
+              href={`https://wa.me/?text=${encodeURIComponent("I just booked a microblading appointment at Brow Ink Co. in Woodbridge! Check them out: browink.co")}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-rosegold text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-rosegold/90 transition-colors"
@@ -64,7 +80,7 @@ export default function ThankYouPage() {
           {/* Back home */}
           <div className="text-center">
             <Link href="/" className="text-espresso/50 text-sm hover:text-espresso transition-colors">
-              ← Back to Brow Ink
+              ← Back to Brow Ink Co.
             </Link>
           </div>
         </div>

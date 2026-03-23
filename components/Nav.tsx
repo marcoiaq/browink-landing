@@ -7,7 +7,7 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-espresso/10">
       <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/" className="font-playfair text-xl font-bold text-espresso tracking-wide">
-          Brow Ink
+          BROW INK CO.
         </Link>
         <a
           href="#form"
