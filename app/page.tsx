@@ -66,8 +66,8 @@ export default function Home() {
 
       {/* Hero */}
       <section className="pt-16 md:pt-20">
-        <div className="relative text-cream px-4 py-20 md:py-36 text-center overflow-hidden">
-          {/* Full-bleed background image */}
+        {/* MOBILE: full-bleed image with overlay */}
+        <div className="relative md:hidden text-cream px-4 py-20 text-center overflow-hidden">
           <div className="absolute inset-0">
             <Image
               src="/images/creative_3.png"
@@ -76,32 +76,75 @@ export default function Home() {
               className="object-cover object-center"
               priority
             />
-            {/* Light dark overlay so text reads clearly */}
             <div className="absolute inset-0 bg-espresso/55" />
           </div>
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <p className="text-rosegold text-xs font-semibold uppercase tracking-widest mb-3 drop-shadow">
+          <div className="relative z-10">
+            <p className="text-rosegold text-xs font-semibold uppercase tracking-widest mb-3">
               Woodbridge &amp; Vaughan · Est. 2019
             </p>
-            <h1 className="font-playfair text-3xl md:text-5xl font-bold leading-tight mb-4 drop-shadow-lg">
+            <h1 className="font-playfair text-3xl font-bold leading-tight mb-4">
               Wake Up With Perfect<br />Brows Every Morning
             </h1>
-            <p className="text-cream/90 text-base md:text-lg mb-8 max-w-md mx-auto drop-shadow">
+            <p className="text-cream/90 text-base mb-8 max-w-sm mx-auto">
               Microblading by Tina Pham — Vaughan&apos;s trusted PMU artist since 2019
             </p>
-            <a
-              href="#form"
-              className="inline-block bg-rosegold text-white font-bold text-base px-8 py-4 rounded-full hover:bg-rosegold/90 transition-colors shadow-xl"
-            >
+            <a href="#form" className="inline-block bg-rosegold text-white font-bold text-base px-8 py-4 rounded-full shadow-xl">
               Book My $197 Intro Appointment →
             </a>
-            <div className="mt-8 flex flex-wrap justify-center gap-4 text-cream/80 text-xs font-medium">
-              <span>500+ Happy Clients</span>
-              <span>·</span>
-              <span>5★ Rated</span>
-              <span>·</span>
-              <span>Free Consultation Included</span>
+            <div className="mt-6 flex flex-wrap justify-center gap-3 text-cream/80 text-xs font-medium">
+              <span>500+ Happy Clients</span><span>·</span><span>5★ Rated</span><span>·</span><span>Free Consultation</span>
             </div>
+          </div>
+        </div>
+
+        {/* DESKTOP: split layout — text left, image right */}
+        <div className="hidden md:flex min-h-[88vh]">
+          {/* Left — clean cream background with copy */}
+          <div className="flex-1 bg-cream flex items-center px-16 xl:px-24">
+            <div className="max-w-lg">
+              <p className="text-rosegold text-xs font-semibold uppercase tracking-widest mb-4">
+                Woodbridge &amp; Vaughan · Est. 2019
+              </p>
+              <h1 className="font-playfair text-5xl xl:text-6xl font-bold text-espresso leading-tight mb-5">
+                Wake Up With<br />Perfect Brows<br />Every Morning
+              </h1>
+              <p className="text-darktext/70 text-lg mb-8 leading-relaxed">
+                Microblading by Tina Pham — Vaughan&apos;s trusted PMU artist since 2019. Natural hair-stroke results that last 1.5–3 years.
+              </p>
+              <a
+                href="#form"
+                className="inline-block bg-espresso text-cream font-bold text-base px-10 py-4 rounded-full hover:bg-rosegold transition-colors shadow-lg mb-8"
+              >
+                Book My $197 Intro Appointment →
+              </a>
+              <div className="flex gap-6 text-darktext/50 text-xs font-medium">
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-espresso font-bold text-lg">500+</span>
+                  <span>Happy Clients</span>
+                </div>
+                <div className="w-px bg-espresso/15" />
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-espresso font-bold text-lg">5★</span>
+                  <span>Rated</span>
+                </div>
+                <div className="w-px bg-espresso/15" />
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-espresso font-bold text-lg">Free</span>
+                  <span>Consultation</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right — full image, no overlay */}
+          <div className="flex-1 relative">
+            <Image
+              src="/images/creative_3.png"
+              alt="Microblading results by Tina Pham"
+              fill
+              className="object-cover object-center"
+              priority
+            />
           </div>
         </div>
       </section>
