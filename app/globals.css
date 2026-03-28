@@ -1,17 +1,19 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
 
 @theme {
   --color-espresso: #3D2314;
   --color-rosegold: #B76E79;
-  --color-cream: #FBF7F4;
-  --color-darktext: #1A1A1A;
-  --font-playfair: var(--font-playfair-var), Georgia, serif;
-  --font-inter: var(--font-inter-var), sans-serif;
+  --color-cream: #FAFAF8;
+  --color-lightsection: #F0EDE8;
+  --color-darktext: #1A1A18;
+  --font-cormorant: var(--font-cormorant-var), "Cormorant Garamond", Georgia, serif;
+  --font-inter: var(--font-inter-var), Inter, system-ui, sans-serif;
 }
 
 :root {
-  --background: #FBF7F4;
-  --foreground: #1A1A1A;
+  --background: #FAFAF8;
+  --foreground: #1A1A18;
 }
 
 * {
@@ -25,27 +27,104 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter-var), sans-serif;
+  font-family: var(--font-inter-var), Inter, system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
 }
 
+/* Section spacing */
 .section-padding {
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 @media (min-width: 768px) {
   .section-padding {
     padding-left: 2rem;
     padding-right: 2rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 }
 
 .container-max {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-narrow {
   max-width: 56rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Slim rectangle CTA button */
+.btn-espresso {
+  display: inline-block;
+  padding: 0.75rem 2.25rem;
+  border: 1px solid #3D2314;
+  color: #3D2314;
+  font-family: var(--font-inter-var), Inter, sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-espresso:hover {
+  background-color: #3D2314;
+  color: #FAFAF8;
+}
+
+.btn-cream {
+  display: inline-block;
+  padding: 0.75rem 2.25rem;
+  border: 1px solid #FAFAF8;
+  color: #FAFAF8;
+  font-family: var(--font-inter-var), Inter, sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-cream:hover {
+  background-color: #FAFAF8;
+  color: #3D2314;
+}
+
+/* Gallery hover */
+.gallery-img {
+  transition: transform 0.7s ease;
+}
+
+.gallery-wrap:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+/* FadeIn animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Thin rose gold horizontal rule */
+.rule-rosegold {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: #B76E79;
 }

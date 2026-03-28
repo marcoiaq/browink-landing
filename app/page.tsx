@@ -1,8 +1,7 @@
 import Image from "next/image";
-import Nav from "@/components/Nav";
-import ReviewCard from "@/components/ReviewCard";
 import GHLForm from "@/components/GHLForm";
 import StickyBar from "@/components/StickyBar";
+import FadeIn from "@/components/FadeIn";
 
 const reviews = [
   {
@@ -59,15 +58,39 @@ const faqs = [
   },
 ];
 
+const galleryImages = [
+  "/images/micro_1.png",
+  "/images/micro_2.png",
+  "/images/micro_3.png",
+  "/images/combo_1.png",
+  "/images/combo_2.png",
+];
+
 export default function Home() {
   return (
     <main className="bg-cream pb-24 md:pb-0">
-      <Nav />
 
-      {/* Hero */}
-      <section className="pt-16 md:pt-20">
-        {/* MOBILE: full-bleed image with overlay */}
-        <div className="relative md:hidden text-cream px-4 py-20 text-center overflow-hidden">
+      {/* ─── NAV ─── */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/92 backdrop-blur-sm border-b border-rosegold/10">
+        <div className="container-max px-4 md:px-8 h-[68px] flex items-center justify-between">
+          <a href="/" className="font-cormorant font-light text-xl tracking-[0.08em] text-espresso">
+            Brow Ink Co.
+          </a>
+          <div className="hidden md:flex items-center gap-8">
+            <a href="#gallery" className="font-inter text-[0.72rem] tracking-[0.15em] uppercase text-darktext/60 hover:text-darktext transition-colors">Gallery</a>
+            <a href="#services" className="font-inter text-[0.72rem] tracking-[0.15em] uppercase text-darktext/60 hover:text-darktext transition-colors">Services</a>
+            <a href="#form" className="btn-espresso">Book $197</a>
+          </div>
+          <a href="#form" className="md:hidden btn-espresso text-[0.65rem] px-4 py-2">Book $197</a>
+        </div>
+      </nav>
+
+      {/* ─── HERO ─── */}
+      <section className="pt-[68px] min-h-screen flex flex-col md:flex-row">
+
+        {/* LEFT — mobile: full-bleed overlay; desktop: clean copy panel */}
+        {/* Mobile */}
+        <div className="relative md:hidden flex-1 text-cream px-5 py-20 text-center overflow-hidden min-h-screen flex flex-col justify-center">
           <div className="absolute inset-0">
             <Image
               src="/images/creative_3.png"
@@ -79,321 +102,433 @@ export default function Home() {
             <div className="absolute inset-0 bg-espresso/55" />
           </div>
           <div className="relative z-10">
-            <p className="text-rosegold text-xs font-semibold uppercase tracking-widest mb-3">
-              Woodbridge &amp; Vaughan · Est. 2019
+            <p className="font-cormorant font-light italic text-rosegold text-sm tracking-[0.06em] mb-4">
+              ✦ Woodbridge · Vaughan
             </p>
-            <h1 className="font-playfair text-3xl font-bold leading-tight mb-4">
-              Wake Up With Perfect<br />Brows Every Morning
+            <span className="rule-rosegold mx-auto mb-6 block" />
+            <h1 className="font-cormorant font-light text-4xl leading-tight tracking-[0.02em] mb-5 text-cream">
+              Wake Up <em className="italic text-rosegold">Flawless</em><br />Every Morning
             </h1>
-            <p className="text-cream/90 text-base mb-8 max-w-sm mx-auto">
+            <p className="font-cormorant italic text-lg text-cream/85 mb-8 max-w-xs mx-auto leading-relaxed">
               Microblading by Tina Pham — Vaughan&apos;s trusted PMU artist since 2019
             </p>
-            <a href="#form" className="inline-block bg-rosegold text-white font-bold text-base px-8 py-4 rounded-full shadow-xl">
-              Book My $197 Intro Appointment →
-            </a>
-            <div className="mt-6 flex flex-wrap justify-center gap-3 text-cream/80 text-xs font-medium">
-              <span>500+ Happy Clients</span><span>·</span><span>5★ Rated</span><span>·</span><span>Free Consultation</span>
+            <a href="#form" className="btn-cream">Claim $197 Offer</a>
+            <div className="mt-8 flex flex-wrap justify-center gap-4 text-cream/70">
+              {[["500+", "Happy Clients"], ["5★", "Rated"], ["Free", "Consultation"]].map(([v, l], i) => (
+                <div key={i} className="text-center">
+                  <p className="font-cormorant font-light text-xl text-cream">{v}</p>
+                  <p className="font-inter text-[0.6rem] tracking-[0.1em] uppercase">{l}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* DESKTOP: split layout — text left, image right */}
-        <div className="hidden md:flex min-h-[88vh]">
-          {/* Left — clean cream background with copy */}
-          <div className="flex-1 bg-cream flex items-center px-16 xl:px-24">
-            <div className="max-w-lg">
-              <p className="text-rosegold text-xs font-semibold uppercase tracking-widest mb-4">
-                Woodbridge &amp; Vaughan · Est. 2019
-              </p>
-              <h1 className="font-playfair text-5xl xl:text-6xl font-bold text-espresso leading-tight mb-5">
-                Wake Up With<br />Perfect Brows<br />Every Morning
-              </h1>
-              <p className="text-darktext/70 text-lg mb-8 leading-relaxed">
-                Microblading by Tina Pham — Vaughan&apos;s trusted PMU artist since 2019. Natural hair-stroke results that last 1.5–3 years.
-              </p>
-              <a
-                href="#form"
-                className="inline-block bg-espresso text-cream font-bold text-base px-10 py-4 rounded-full hover:bg-rosegold transition-colors shadow-lg mb-8"
-              >
-                Book My $197 Intro Appointment →
-              </a>
-              <div className="flex gap-6 text-darktext/50 text-xs font-medium">
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-espresso font-bold text-lg">500+</span>
-                  <span>Happy Clients</span>
-                </div>
-                <div className="w-px bg-espresso/15" />
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-espresso font-bold text-lg">5★</span>
-                  <span>Rated</span>
-                </div>
-                <div className="w-px bg-espresso/15" />
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-espresso font-bold text-lg">Free</span>
-                  <span>Consultation</span>
-                </div>
-              </div>
+        {/* Desktop left panel */}
+        <div className="hidden md:flex flex-1 flex-col justify-center px-16 xl:px-24 py-20">
+          <FadeIn delay={0}>
+            <p className="font-cormorant italic font-light text-rosegold text-sm tracking-[0.06em] mb-4">
+              ✦ Woodbridge · Vaughan
+            </p>
+          </FadeIn>
+          <FadeIn delay={80}>
+            <span className="rule-rosegold mb-6 block" />
+          </FadeIn>
+          <FadeIn delay={160}>
+            <h1 className="font-cormorant font-light text-6xl xl:text-7xl leading-[1.08] tracking-[0.02em] text-darktext mb-6">
+              Wake Up{" "}
+              <em className="italic text-rosegold">Flawless</em>
+              <br />Every Morning
+            </h1>
+          </FadeIn>
+          <FadeIn delay={240}>
+            <p className="font-cormorant italic font-normal text-xl text-espresso/80 mb-10 max-w-md leading-relaxed">
+              Microblading by Tina Pham — Vaughan&apos;s trusted PMU artist since 2019
+            </p>
+          </FadeIn>
+          <FadeIn delay={320}>
+            <div className="mb-12">
+              <a href="#form" className="btn-espresso">Claim $197 Offer</a>
             </div>
-          </div>
+          </FadeIn>
+          <FadeIn delay={400}>
+            <div className="flex gap-6 items-center">
+              {[["500+", "Happy Clients"], ["5★", "Rated"], ["Free", "Consultation"]].map(([v, l], i) => (
+                <div key={i} className="flex items-center gap-6">
+                  {i > 0 && <div className="w-px h-7 bg-rosegold/25" />}
+                  <div>
+                    <p className="font-cormorant font-light text-xl text-espresso leading-tight">{v}</p>
+                    <p className="font-inter font-light text-[0.62rem] tracking-[0.1em] uppercase text-darktext/50">{l}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
 
-          {/* Right — full image, no overlay */}
-          <div className="flex-1 relative">
-            <Image
-              src="/images/creative_3.png"
-              alt="Microblading results by Tina Pham"
-              fill
-              className="object-cover object-center"
-              priority
-            />
-          </div>
+        {/* Desktop right — image with left-edge gradient */}
+        <div className="hidden md:block flex-1 relative">
+          <Image
+            src="/images/creative_3.png"
+            alt="Microblading results by Tina Pham"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          {/* Left-edge gradient fade into background */}
+          <div
+            className="absolute inset-y-0 left-0"
+            style={{
+              width: "200px",
+              background: "linear-gradient(to right, #FAFAF8 0%, rgba(250,250,248,0.6) 50%, transparent 100%)",
+            }}
+          />
         </div>
       </section>
 
-      {/* Before/After Photos */}
-      <section className="section-padding">
-        <div className="container-max">
-          <h2 className="font-playfair text-2xl md:text-3xl font-bold text-espresso text-center mb-2">
-            Real Results. Real Clients.
-          </h2>
-          <p className="text-darktext/60 text-center text-sm mb-8">Every result is by Tina Pham</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {[
-              "/images/micro_1.png",
-              "/images/micro_2.png",
-              "/images/micro_3.png",
-              "/images/combo_1.png",
-              "/images/combo_2.png",
-              "/images/combo_3.png",
-            ].map((src, i) => (
-              <div key={i} className="relative rounded-xl overflow-hidden shadow-sm">
-                <div className="relative aspect-square">
+      {/* ─── GALLERY ─── */}
+      <section id="gallery" className="section-padding">
+        <div className="container-max px-4 md:px-8">
+          <FadeIn>
+            <div className="text-center mb-12">
+              <h2 className="font-cormorant italic font-light text-4xl md:text-5xl tracking-[0.02em] text-darktext inline-block pb-3 border-b border-rosegold">
+                Gallery
+              </h2>
+              <p className="font-inter font-light text-sm text-darktext/50 mt-4 tracking-wide">
+                Every result is by Tina Pham
+              </p>
+            </div>
+          </FadeIn>
+
+          {/* Editorial grid — first image spans 2 rows */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3" style={{ gridTemplateRows: "auto" }}>
+            {/* First image — 2 rows on desktop */}
+            <FadeIn className="row-span-2" delay={0}>
+              <div className="gallery-wrap relative overflow-hidden rounded-sm h-full" style={{ minHeight: "300px" }}>
+                <Image
+                  src={galleryImages[0]}
+                  alt="Brow result by Tina Pham"
+                  fill
+                  className="object-cover gallery-img"
+                  loading="lazy"
+                />
+              </div>
+            </FadeIn>
+
+            {galleryImages.slice(1).map((src, i) => (
+              <FadeIn key={i} delay={(i + 1) * 80}>
+                <div className="gallery-wrap relative overflow-hidden rounded-sm aspect-square">
                   <Image
                     src={src}
                     alt="Brow result by Tina Pham"
                     fill
-                    className="object-cover"
+                    className="object-cover gallery-img"
                     loading="lazy"
                   />
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Video Section */}
-      <section className="bg-espresso/5 section-padding">
-        <div className="container-max text-center">
-          <h2 className="font-playfair text-2xl md:text-3xl font-bold text-espresso mb-2">
-            See the Transformation
-          </h2>
-          <p className="text-darktext/60 text-sm mb-6">Combination brows by Tina Pham — air blend technique</p>
-          <div className="relative rounded-2xl overflow-hidden max-w-xl mx-auto shadow-lg">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              controls
-              className="w-full"
-              src="/promo.mp4"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="section-padding">
-        <div className="container-max">
-          <h2 className="font-playfair text-2xl md:text-3xl font-bold text-espresso text-center mb-2">
-            How It Works
-          </h2>
-          <p className="text-darktext/60 text-center text-sm mb-10">Three simple steps to your perfect brows</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            {[
-              {
-                num: "1",
-                title: "Book your $197 intro appointment",
-                desc: "A $30 deposit holds your spot — fully credited toward your service.",
-              },
-              {
-                num: "2",
-                title: "Come in for your free consultation",
-                desc: "Tina personally maps your perfect brow shape for your face.",
-              },
-              {
-                num: "3",
-                title: "Leave with flawless brows",
-                desc: "Natural hair-stroke results that last 1.5–3 years.",
-              },
-            ].map((step) => (
-              <div key={step.num} className="text-center">
-                <div className="w-12 h-12 rounded-full bg-rosegold text-white font-playfair font-bold text-lg flex items-center justify-center mx-auto mb-4 shadow-md">
-                  {step.num}
-                </div>
-                <h3 className="font-semibold text-espresso mb-2 text-sm md:text-base">{step.title}</h3>
-                <p className="text-darktext/60 text-sm leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Section */}
-      <section className="bg-espresso text-cream section-padding">
-        <div className="container-max">
-          <h2 className="font-playfair text-2xl md:text-3xl font-bold text-center mb-2">
-            Why Brow Ink Co.
-          </h2>
-          <p className="text-cream/60 text-center text-sm mb-8">Everything included for your best brows</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto">
-            {[
-              "500+ Transformations Completed",
-              "Certified & Licensed PMU Artist — Tina Pham",
-              "Premium Pigments — Fade Beautifully Over Time",
-              "Custom Shape Designed for YOUR Face",
-              "Numbing Cream — Minimal Discomfort",
-              "Free Touch-Up Consultation at 4–6 Weeks",
-              "Free Aftercare Kit Included ($20 value)",
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3 bg-white/5 rounded-xl px-4 py-3">
-                <span className="text-rosegold font-bold text-lg mt-0.5">✓</span>
-                <span className="text-sm text-cream/90">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Offer Section */}
-      <section className="section-padding">
-        <div className="container-max">
-          <div className="bg-gradient-to-br from-rosegold/10 to-espresso/5 rounded-3xl p-8 md:p-12 text-center border border-rosegold/20">
-            <p className="text-rosegold text-xs font-bold uppercase tracking-widest mb-3">
-              ⚡ Limited Time Intro Offer
+      {/* ─── VIDEO ─── */}
+      <section className="bg-lightsection section-padding">
+        <div className="container-narrow px-4 md:px-8 text-center">
+          <FadeIn>
+            <h2 className="font-cormorant font-light text-3xl md:text-4xl tracking-[0.02em] text-darktext mb-2">
+              See the Transformation
+            </h2>
+            <p className="font-cormorant italic font-normal text-base text-espresso/70 mb-8">
+              Combination brows by Tina Pham — air blend technique
             </p>
-            <h2 className="font-playfair text-2xl md:text-4xl font-bold text-espresso mb-6">
+          </FadeIn>
+          <FadeIn delay={150}>
+            <div className="relative overflow-hidden rounded-sm max-w-xl mx-auto" style={{ boxShadow: "0 8px 40px rgba(61,35,20,0.1)" }}>
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                className="w-full"
+                src="/promo.mp4"
+              />
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ─── HOW IT WORKS ─── */}
+      <section id="services" className="section-padding">
+        <div className="container-max px-4 md:px-8">
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="font-cormorant font-light text-3xl md:text-4xl tracking-[0.02em] text-darktext mb-2">
+                The Process
+              </h2>
+              <p className="font-cormorant italic text-base text-espresso/70">
+                Three steps to your most effortless brows
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+            {[
+              {
+                num: "01",
+                title: "Consultation",
+                desc: "A $30 deposit holds your spot — fully credited toward your service. Tina maps your perfect brow shape personally.",
+              },
+              {
+                num: "02",
+                title: "Artistry",
+                desc: "Using ultra-fine hair strokes, Tina creates dimension and definition that blends seamlessly with your natural brows.",
+              },
+              {
+                num: "03",
+                title: "Aftercare",
+                desc: "Leave with flawless, natural hair-stroke brows lasting 1.5–3 years. A free touch-up at 4–6 weeks is included.",
+              },
+            ].map((step, i) => (
+              <FadeIn key={step.num} delay={i * 120}>
+                <div className="relative pt-2">
+                  {/* Decorative number */}
+                  <span
+                    className="font-cormorant font-light absolute select-none pointer-events-none"
+                    style={{
+                      fontSize: "6.5rem",
+                      lineHeight: 1,
+                      color: "rgba(183,110,121,0.1)",
+                      top: "-1.25rem",
+                      left: "-0.5rem",
+                    }}
+                  >
+                    {step.num}
+                  </span>
+                  <div className="relative z-10 pt-14">
+                    <h3 className="font-cormorant italic text-2xl text-espresso mb-3">{step.title}</h3>
+                    <p className="font-inter font-light text-sm leading-[1.8] text-darktext/65">{step.desc}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── WHY BROW INK ─── */}
+      <section className="bg-lightsection section-padding">
+        <div className="container-max px-4 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+            {/* Left */}
+            <FadeIn>
+              <div>
+                <h2 className="font-cormorant font-light text-3xl md:text-4xl tracking-[0.02em] text-darktext mb-2">
+                  Why Brow Ink Co.
+                </h2>
+                <p className="font-cormorant italic text-base text-rosegold mb-10">
+                  The standard for brow artistry in Woodbridge &amp; Vaughan
+                </p>
+                <ul className="space-y-4">
+                  {[
+                    "500+ Transformations Completed",
+                    "Certified & Licensed PMU Artist — Tina Pham",
+                    "Premium Pigments — Fade Beautifully Over Time",
+                    "Custom Shape Designed for YOUR Face",
+                    "Numbing Cream — Minimal Discomfort",
+                    "Free Touch-Up Consultation at 4–6 Weeks",
+                    "Free Aftercare Kit Included ($20 value)",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 pl-4 border-l-2 border-espresso">
+                      <span className="text-rosegold text-xs mt-[0.3rem] flex-shrink-0">✦</span>
+                      <span className="font-inter font-light text-sm leading-[1.7] text-darktext">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </FadeIn>
+
+            {/* Right — gallery collage */}
+            <FadeIn delay={200}>
+              <div className="grid grid-cols-2 gap-2">
+                {["/images/combo_3.png", "/images/combo_4.png", "/images/creative_1.png", "/images/creative_2.png"].map((src, i) => (
+                  <div key={i} className="gallery-wrap relative overflow-hidden rounded-sm aspect-square">
+                    <Image
+                      src={src}
+                      alt="Brow result"
+                      fill
+                      className="object-cover gallery-img"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── OFFER ─── */}
+      <section className="bg-lightsection section-padding">
+        <div className="container-narrow px-4 md:px-8 text-center">
+          <FadeIn>
+            <p className="font-inter font-light text-[0.7rem] tracking-[0.2em] uppercase text-rosegold mb-4">
+              Limited Intro Offer
+            </p>
+            <h2 className="font-cormorant font-light text-3xl md:text-4xl tracking-[0.02em] text-darktext mb-2">
               Microblading Intro Special
             </h2>
-            <div className="bg-white/60 rounded-2xl p-5 mb-6 max-w-sm mx-auto text-left space-y-2">
-              <div className="flex justify-between text-sm text-darktext/70">
-                <span>Personalized Brow Consultation</span>
-                <span>$100</span>
-              </div>
-              <div className="flex justify-between text-sm text-darktext/70">
-                <span>Microblading Treatment</span>
-                <span>$300</span>
-              </div>
-              <div className="flex justify-between text-sm text-darktext/70">
-                <span>Free Aftercare Kit</span>
-                <span>$20</span>
-              </div>
-              <div className="border-t border-espresso/15 pt-2 flex justify-between text-sm font-semibold text-espresso">
-                <span>Total Value</span>
-                <span>$420</span>
-              </div>
-            </div>
-            <div className="flex items-center justify-center gap-4 mb-3">
-              <span className="text-darktext/40 text-2xl line-through">$400</span>
-              <span className="text-5xl font-bold text-espresso">$197</span>
-              <span className="text-darktext/60 text-sm self-end mb-2">CAD</span>
-            </div>
-            <p className="text-darktext/60 text-sm mb-2">3-hour appointment · Aftercare kit included</p>
-            <div className="inline-block bg-red-50 border border-red-200 rounded-full px-4 py-1.5 mb-6">
-              <p className="text-red-600 text-xs font-semibold">🔥 Only 3 spots left this week</p>
-            </div>
-            <div className="block">
-              <a
-                href="#form"
-                className="inline-block bg-espresso text-cream font-bold text-base px-10 py-4 rounded-full hover:bg-rosegold transition-colors shadow-lg"
-              >
-                Claim My Spot for $197 →
-              </a>
-            </div>
-            <p className="text-darktext/40 text-xs mt-4">Limited availability — $30 deposit holds your spot</p>
-          </div>
+            <p className="font-cormorant italic text-base text-espresso/75 mb-10">
+              Everything included for your best brows
+            </p>
+          </FadeIn>
+
+          {/* Price */}
+          <FadeIn delay={100}>
+            <p className="font-inter font-light text-sm text-darktext/40 line-through mb-1">Reg. $400</p>
+            <p
+              className="font-cormorant font-light text-darktext"
+              style={{ fontSize: "6rem", lineHeight: 1 }}
+            >
+              $197
+            </p>
+            <p className="font-inter font-light text-xs text-darktext/40 mb-10 mt-1">CAD · 3-hr appointment</p>
+          </FadeIn>
+
+          {/* Included items */}
+          <FadeIn delay={180}>
+            <ul className="max-w-xs mx-auto text-left space-y-3 mb-10">
+              {[
+                "Personalized Brow Consultation ($100 value)",
+                "Full Microblading Treatment ($300 value)",
+                "Free Aftercare Kit ($20 value)",
+                "Complimentary Touch-Up at 4–6 Weeks",
+                "$30 refundable deposit holds your spot",
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="text-espresso/40 font-light mt-px flex-shrink-0">—</span>
+                  <span className="font-inter font-light text-sm leading-[1.8] text-darktext/70">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </FadeIn>
+
+          <FadeIn delay={240}>
+            <a href="#form" className="btn-espresso">Claim My Spot — $197</a>
+          </FadeIn>
         </div>
       </section>
 
-      {/* Reviews */}
-      <section className="section-padding bg-espresso/5">
-        <div className="container-max">
-          <h2 className="font-playfair text-2xl md:text-3xl font-bold text-espresso text-center mb-2">
-            What Our Clients Say
-          </h2>
-          <p className="text-darktext/60 text-center text-sm mb-8">500+ happy clients across Vaughan &amp; the GTA</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* ─── TESTIMONIALS ─── */}
+      <section className="section-padding">
+        <div className="container-max px-4 md:px-8">
+          <FadeIn>
+            <div className="text-center mb-12">
+              <h2 className="font-cormorant font-light text-3xl md:text-4xl tracking-[0.02em] text-darktext mb-2">
+                Client Stories
+              </h2>
+              <p className="font-inter font-light text-xs tracking-[0.1em] uppercase text-darktext/40 mt-2">
+                500+ happy clients across Vaughan &amp; the GTA
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {reviews.map((r, i) => (
-              <ReviewCard key={i} text={r.text} author={r.author} location={r.location} />
+              <FadeIn key={i} delay={i * 80}>
+                <div className="bg-lightsection p-8" style={{ boxShadow: "0 4px 30px rgba(61,35,20,0.05)" }}>
+                  {/* Stars */}
+                  <p className="text-rosegold text-sm mb-4 tracking-wider">★★★★★</p>
+                  {/* Review text */}
+                  <p className="font-inter font-light italic text-sm leading-[1.8] text-darktext/75 mb-5">
+                    &ldquo;{r.text}&rdquo;
+                  </p>
+                  {/* Name */}
+                  <p
+                    className="font-cormorant text-espresso tracking-[0.1em] uppercase"
+                    style={{ fontVariant: "small-caps", fontSize: "0.85rem" }}
+                  >
+                    {r.author}
+                    <span className="font-inter font-light text-[0.65rem] text-darktext/40 ml-2 tracking-wide normal-case" style={{ fontVariant: "normal" }}>
+                      · {r.location}
+                    </span>
+                  </p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Lead Form */}
-      <section id="form" className="section-padding">
-        <div className="container-max">
-          <div className="text-center mb-6">
-            <h2 className="font-playfair text-2xl md:text-3xl font-bold text-espresso mb-2">
-              Book Your $197 Intro Appointment
-            </h2>
-            <p className="text-darktext/60 text-sm max-w-sm mx-auto">
-              $30 fully refundable deposit holds your spot — credited toward your service
-            </p>
-          </div>
-          <div className="bg-white rounded-2xl shadow-sm border border-espresso/10 p-4 md:p-8 max-w-xl mx-auto">
-            <GHLForm />
-            <div className="flex items-center justify-center gap-4 mt-4 text-darktext/40 text-xs">
+      {/* ─── FORM ─── */}
+      <section id="form" className="section-padding bg-cream">
+        <div className="container-narrow px-4 md:px-8">
+          <FadeIn>
+            <div className="text-center mb-10">
+              <h2 className="font-cormorant font-light text-3xl md:text-4xl tracking-[0.02em] text-darktext mb-2">
+                Claim Your $197 Offer
+              </h2>
+              <p className="font-cormorant italic text-base text-espresso/70">
+                Fill in your details below — we&apos;ll be in touch within 24 hours
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={120}>
+            <div className="border border-espresso max-w-xl mx-auto">
+              <GHLForm />
+            </div>
+            <div className="flex items-center justify-center gap-4 mt-4 text-darktext/30 text-xs font-inter font-light">
               <span>🔒 Secure</span>
               <span>·</span>
               <span>No Spam</span>
               <span>·</span>
               <span>Cancel Anytime</span>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="section-padding bg-espresso/5">
-        <div className="container-max max-w-2xl">
-          <h2 className="font-playfair text-2xl md:text-3xl font-bold text-espresso text-center mb-8">
-            Frequently Asked Questions
-          </h2>
+      {/* ─── FAQ ─── */}
+      <section className="section-padding bg-lightsection">
+        <div className="container-narrow px-4 md:px-8 max-w-2xl">
+          <FadeIn>
+            <h2 className="font-cormorant font-light text-3xl md:text-4xl tracking-[0.02em] text-darktext text-center mb-12">
+              Frequently Asked Questions
+            </h2>
+          </FadeIn>
           <div className="space-y-4">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-white rounded-xl p-5 shadow-sm border border-espresso/10">
-                <h3 className="font-semibold text-espresso mb-2 text-sm md:text-base">{faq.q}</h3>
-                <p className="text-darktext/70 text-sm leading-relaxed">{faq.a}</p>
-              </div>
+              <FadeIn key={i} delay={i * 60}>
+                <div className="border-l-2 border-espresso pl-5 py-1">
+                  <h3 className="font-cormorant italic text-lg text-espresso mb-1">{faq.q}</h3>
+                  <p className="font-inter font-light text-sm leading-[1.8] text-darktext/65">{faq.a}</p>
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-espresso text-cream/60 text-center py-10 px-4 text-xs">
-        <p className="font-playfair text-cream text-lg mb-1">BROW INK CO.</p>
-        <p className="mb-1">107 Fossil Hill Road, Woodbridge, ON L4H 2L3</p>
-        <p className="mb-1">5 min from Vaughan Mills</p>
-        <p className="mb-1">
+      {/* ─── FOOTER ─── */}
+      <footer className="border-t border-rosegold/20 py-12 px-4 text-center bg-cream">
+        <p className="font-cormorant font-light text-xl text-espresso tracking-[0.08em] mb-3">Brow Ink Co.</p>
+        <p className="font-inter font-light text-xs text-darktext/40 mb-1">107 Fossil Hill Road, Woodbridge, ON L4H 2L3 · 5 min from Vaughan Mills</p>
+        <p className="font-inter font-light text-xs text-darktext/40 mb-2">
           Mon–Fri: 9:30–10:30am &amp; 5:30–8pm · Sun: 11am–6pm
         </p>
-        <p className="mb-3">
-          <a href="mailto:tinanguyen19@gmail.com" className="hover:text-rosegold transition-colors">
-            tinanguyen19@gmail.com
-          </a>
+        <p className="font-inter font-light text-xs text-darktext/40 mb-4">
+          <a href="mailto:tinanguyen19@gmail.com" className="hover:text-rosegold transition-colors">tinanguyen19@gmail.com</a>
           {" · "}
-          <a
-            href="https://www.instagram.com/browink.co"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-rosegold transition-colors"
-          >
-            @browink.co
-          </a>
+          <a href="https://www.instagram.com/browink.co" target="_blank" rel="noopener noreferrer" className="hover:text-rosegold transition-colors">@browink.co</a>
         </p>
-        <p>© {new Date().getFullYear()} Brow Ink Co. All rights reserved.</p>
+        <p className="font-inter font-light text-[0.65rem] text-darktext/25 tracking-widest uppercase">
+          ✦ Woodbridge · Vaughan · GTA
+        </p>
+        <p className="font-inter font-light text-[0.65rem] text-darktext/25 mt-1">
+          © {new Date().getFullYear()} Brow Ink Co. All rights reserved.
+        </p>
       </footer>
 
       <StickyBar />
