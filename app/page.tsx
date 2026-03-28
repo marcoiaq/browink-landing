@@ -59,7 +59,7 @@ const faqs = [
 ];
 
 const galleryImages = [
-  "/images/micro_1.png",
+  "/images/combo_4.png",
   "/images/micro_2.png",
   "/images/micro_3.png",
   "/images/combo_1.png",
@@ -77,11 +77,10 @@ export default function Home() {
             Brow Ink Co.
           </a>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#gallery" className="font-inter text-[0.72rem] tracking-[0.15em] uppercase text-darktext/60 hover:text-darktext transition-colors">Gallery</a>
-            <a href="#services" className="font-inter text-[0.72rem] tracking-[0.15em] uppercase text-darktext/60 hover:text-darktext transition-colors">Services</a>
+            <a href="#gallery" className="font-inter text-[0.72rem] tracking-[0.15em] uppercase text-darktext/60 hover:text-darktext transition-colors">Before &amp; After</a>
+            <a href="#services" className="font-inter text-[0.72rem] tracking-[0.15em] uppercase text-darktext/60 hover:text-darktext transition-colors">The Treatment</a>
             <a href="#form" className="btn-espresso">Book $197</a>
           </div>
-          <a href="#form" className="md:hidden btn-espresso text-[0.65rem] px-4 py-2">Book $197</a>
         </div>
       </nav>
 
@@ -99,20 +98,20 @@ export default function Home() {
               className="object-cover object-center"
               priority
             />
-            <div className="absolute inset-0 bg-espresso/55" />
+            <div className="absolute inset-0 bg-espresso/65" />
           </div>
           <div className="relative z-10">
-            <p className="font-cormorant font-light italic text-rosegold text-sm tracking-[0.06em] mb-4">
+            <p className="font-cormorant font-light italic text-rosegold text-sm tracking-[0.06em] mb-4 drop-shadow-lg">
               ✦ Woodbridge · Vaughan
             </p>
             <span className="rule-rosegold mx-auto mb-6 block" />
-            <h1 className="font-cormorant font-light text-4xl leading-tight tracking-[0.02em] mb-5 text-cream">
+            <h1 className="font-cormorant font-light text-4xl leading-tight tracking-[0.02em] mb-5 text-cream drop-shadow-lg">
               Wake Up <em className="italic text-rosegold">Flawless</em><br />Every Morning
             </h1>
             <p className="font-cormorant italic text-lg text-cream/85 mb-8 max-w-xs mx-auto leading-relaxed">
               Microblading by Tina Pham — Vaughan&apos;s trusted PMU artist since 2019
             </p>
-            <a href="#form" className="btn-cream">Claim $197 Offer</a>
+            <a id="form-cta" href="#form" className="btn-cream">Claim $197 Offer</a>
             <div className="mt-8 flex flex-wrap justify-center gap-4 text-cream/70">
               {[["500+", "Happy Clients"], ["5★", "Rated"], ["Free", "Consultation"]].map(([v, l], i) => (
                 <div key={i} className="text-center">
@@ -192,7 +191,7 @@ export default function Home() {
           <FadeIn>
             <div className="text-center mb-12">
               <h2 className="font-cormorant italic font-light text-4xl md:text-5xl tracking-[0.02em] text-darktext inline-block pb-3 border-b border-rosegold">
-                Gallery
+                Before &amp; After
               </h2>
               <p className="font-inter font-light text-sm text-darktext/50 mt-4 tracking-wide">
                 Every result is by Tina Pham
@@ -200,24 +199,10 @@ export default function Home() {
             </div>
           </FadeIn>
 
-          {/* Editorial grid — first image spans 2 rows */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3" style={{ gridTemplateRows: "auto" }}>
-            {/* First image — 2 rows on desktop */}
-            <FadeIn className="row-span-2" delay={0}>
-              <div className="gallery-wrap relative overflow-hidden rounded-sm h-full" style={{ minHeight: "300px" }}>
-                <Image
-                  src={galleryImages[0]}
-                  alt="Brow result by Tina Pham"
-                  fill
-                  className="object-cover gallery-img"
-                  loading="lazy"
-                />
-              </div>
-            </FadeIn>
-
-            {galleryImages.slice(1).map((src, i) => (
-              <FadeIn key={i} delay={(i + 1) * 80}>
-                <div className="gallery-wrap relative overflow-hidden rounded-sm aspect-square">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            {galleryImages.map((src, i) => (
+              <FadeIn key={i} delay={i * 80}>
+                <div className="gallery-wrap relative overflow-hidden rounded-sm aspect-[4/5]">
                   <Image
                     src={src}
                     alt="Brow result by Tina Pham"
@@ -265,7 +250,7 @@ export default function Home() {
           <FadeIn>
             <div className="text-center mb-16">
               <h2 className="font-cormorant font-light text-3xl md:text-4xl tracking-[0.02em] text-darktext mb-2">
-                The Process
+                The Treatment
               </h2>
               <p className="font-cormorant italic text-base text-espresso/70">
                 Three steps to your most effortless brows
@@ -330,7 +315,7 @@ export default function Home() {
                 <p className="font-cormorant italic text-base text-rosegold mb-10">
                   The standard for brow artistry in Woodbridge &amp; Vaughan
                 </p>
-                <ul className="space-y-4">
+                <ul className="flex flex-col gap-4">
                   {[
                     "500+ Transformations Completed",
                     "Certified & Licensed PMU Artist — Tina Pham",
@@ -340,7 +325,7 @@ export default function Home() {
                     "Free Touch-Up Consultation at 4–6 Weeks",
                     "Free Aftercare Kit Included ($20 value)",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 pl-4 border-l-2 border-espresso">
+                    <li key={i} className="flex items-start gap-3">
                       <span className="text-rosegold text-xs mt-[0.3rem] flex-shrink-0">✦</span>
                       <span className="font-inter font-light text-sm leading-[1.7] text-darktext">{item}</span>
                     </li>
