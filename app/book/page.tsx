@@ -18,7 +18,7 @@ export default function BookPage() {
               Book Your Appointment
             </h1>
             <p className="font-cormorant italic text-base text-espresso/70 max-w-sm mx-auto">
-              Your $30 deposit holds your spot and is fully credited toward your service.
+              Appointments must be scheduled at least 48 hours in advance. Your $30 deposit holds your spot and is fully credited toward your service.
             </p>
           </div>
 
@@ -54,7 +54,7 @@ export default function BookPage() {
             <div className="space-y-2">
               {[
                 "100% credited toward your $197 microblading appointment",
-                "Fully refundable if you cancel 48+ hours in advance",
+                "Fully refundable if you cancel 48+ hours before your appointment",
                 "Processed securely — holds your spot exclusively for you",
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-2">

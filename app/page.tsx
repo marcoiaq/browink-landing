@@ -42,7 +42,7 @@ const faqs = [
   },
   {
     q: "What is the $30 deposit for?",
-    a: "The $30 deposit holds your appointment spot and is 100% credited toward your service. It is also fully refundable if you need to cancel.",
+    a: "The $30 deposit holds your appointment spot and is 100% credited toward your service. It is also fully refundable if you cancel at least 48 hours before your appointment.",
   },
   {
     q: "What's included in the $197 intro price?",
@@ -263,7 +263,7 @@ export default function Home() {
               {
                 num: "01",
                 title: "Consultation",
-                desc: "A $30 deposit holds your spot — fully credited toward your service. Tina maps your perfect brow shape personally.",
+                desc: "A $30 deposit holds your spot — fully credited toward your service. Appointments must be scheduled at least 48 hours in advance.",
               },
               {
                 num: "02",
@@ -389,7 +389,7 @@ export default function Home() {
                 "Full Microblading Treatment ($300 value)",
                 "Free Aftercare Kit ($20 value)",
                 "Complimentary Touch-Up at 4–6 Weeks",
-                "$30 refundable deposit holds your spot",
+                "$30 deposit — refundable if cancelled 48+ hours before appointment",
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
                   <span className="text-espresso/40 font-light mt-px flex-shrink-0">—</span>
@@ -455,7 +455,7 @@ export default function Home() {
                 Claim Your $197 Offer
               </h2>
               <p className="font-cormorant italic text-base text-espresso/70">
-                Fill in your details below — we&apos;ll be in touch within 24 hours
+                Fill in your details below — appointments must be booked at least 48 hours in advance
               </p>
             </div>
           </FadeIn>

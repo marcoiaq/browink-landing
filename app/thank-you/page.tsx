@@ -27,7 +27,7 @@ export default function ThankYouPage() {
             </h2>
             <div className="space-y-4">
               {[
-                { num: "1", text: "Check your email for your appointment confirmation" },
+                { num: "1", text: "Check your email for your appointment confirmation — remember, appointments must be scheduled at least 48 hours in advance" },
                 { num: "2", text: "Avoid caffeine and alcohol 24 hours before your appointment" },
                 { num: "3", text: "Come with clean brows — no makeup on the brow area" },
                 { num: "4", text: "Avoid blood thinners (aspirin, ibuprofen) 48 hours before if possible" },
