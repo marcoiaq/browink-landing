@@ -461,7 +461,7 @@ export default function Home() {
           </FadeIn>
 
           <FadeIn delay={120}>
-            <div className="border border-espresso max-w-xl mx-auto">
+            <div className="max-w-xl mx-auto">
               <GHLForm />
             </div>
             <div className="flex items-center justify-center gap-4 mt-4 text-darktext/30 text-xs font-inter font-light">
